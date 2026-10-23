@@ -1,1 +1,1629 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Our Lady of Mercy High School - learning, leadership, discipline and excellence.">
+
+    <title>Our Lady of Mercy High School | Official Website</title>
+
+    <style>
+        /* =========================
+           1. DESIGN VARIABLES
+        ========================= */
+        :root {
+            --maroon: #79001f;
+            --dark-maroon: #39000f;
+            --deep-maroon: #520018;
+            --white: #ffffff;
+            --cream: #fffaf7;
+            --light-pink: #f8edf0;
+            --gold: #d8b56a;
+            --text: #343039;
+            --muted: #716b72;
+            --border: #eadde1;
+            --shadow: 0 12px 35px rgba(57, 0, 15, 0.10);
+            --radius: 16px;
+        }
+
+        /* =========================
+           2. GENERAL STYLING
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1160px, 90%);
+            margin: auto;
+        }
+
+        .section {
+            padding: 85px 0;
+        }
+
+        .section-heading {
+            max-width: 720px;
+            margin: 0 auto 45px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--maroon);
+            background: var(--light-pink);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-heading h2 {
+            color: var(--dark-maroon);
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .gold-line {
+            width: 65px;
+            height: 4px;
+            border-radius: 10px;
+            background: var(--gold);
+            margin: 20px auto 0;
+        }
+
+        /* =========================
+           3. TOP ANNOUNCEMENT BAR
+        ========================= */
+        .topbar {
+            background: var(--dark-maroon);
+            color: var(--white);
+            text-align: center;
+            padding: 9px 15px;
+            font-size: 13px;
+        }
+
+        .topbar strong {
+            color: var(--gold);
+        }
+
+        /* =========================
+           4. HEADER AND NAVIGATION
+        ========================= */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            min-height: 88px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            color: var(--maroon);
+            min-width: 0;
+        }
+
+        .crest {
+            width: 54px;
+            height: 54px;
+            flex-shrink: 0;
+            display: grid;
+            place-items: center;
+            color: var(--white);
+            background: var(--maroon);
+            border: 3px solid var(--gold);
+            border-radius: 50% 50% 45% 45%;
+            font-family: Georgia, serif;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .brand-text {
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: bold;
+            font-size: 17px;
+            line-height: 1.25;
+        }
+
+        .brand-text span {
+            display: block;
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            margin-top: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            color: var(--text);
+            font-size: 13px;
+            font-weight: bold;
+            padding: 10px 11px;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            background: var(--light-pink);
+            color: var(--maroon);
+        }
+
+        .nav-links .nav-cta {
+            color: var(--white);
+            background: var(--maroon);
+            padding: 11px 16px;
+        }
+
+        .nav-links .nav-cta:hover {
+            background: var(--dark-maroon);
+            color: var(--white);
+        }
+
+        /* =========================
+           5. HERO / HOME SECTION
+        ========================= */
+        .hero {
+            position: relative;
+            min-height: 610px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            color: var(--white);
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(45, 0, 14, 0.88) 0%,
+                    rgba(65, 0, 20, 0.70) 48%,
+                    rgba(65, 0, 20, 0.15) 100%
+                ),
+                url("school-gate.png") center 45% / cover no-repeat,
+                var(--maroon);
+        }
+
+        .hero-content {
+            max-width: 730px;
+            padding: 90px 0;
+        }
+
+        .hero-label {
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            background: rgba(255, 255, 255, 0.10);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(38px, 6vw, 70px);
+            line-height: 1.08;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            max-width: 590px;
+            font-size: 18px;
+            color: #fff0f3;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-align: center;
+            padding: 13px 23px;
+            border-radius: 7px;
+            font-weight: bold;
+            border: 2px solid transparent;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-light {
+            color: var(--maroon);
+            background: var(--white);
+        }
+
+        .btn-outline {
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.75);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--maroon);
+        }
+
+        .hero-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gold);
+        }
+
+        /* =========================
+           6. QUICK FACTS
+        ========================= */
+        .facts-wrap {
+            position: relative;
+            margin-top: -1px;
+            background: var(--white);
+        }
+
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: 1px solid var(--border);
+            border-radius: 0 0 var(--radius) var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .fact {
+            text-align: center;
+            padding: 27px 18px;
+            border-right: 1px solid var(--border);
+        }
+
+        .fact:last-child {
+            border-right: none;
+        }
+
+        .fact strong {
+            display: block;
+            color: var(--maroon);
+            font-family: Georgia, serif;
+            font-size: 23px;
+            margin-bottom: 4px;
+        }
+
+        .fact span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* =========================
+           7. ABOUT THE SCHOOL
+        ========================= */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .about-image {
+            min-height: 390px;
+            background:
+                linear-gradient(
+                    rgba(60, 0, 18, 0.08),
+                    rgba(60, 0, 18, 0.08)
+                ),
+                url("school-gate.png") center / cover no-repeat,
+                var(--light-pink);
+            border-radius: 18px;
+            border: 5px solid var(--light-pink);
+            box-shadow: var(--shadow);
+        }
+
+        .about-text .eyebrow {
+            margin-bottom: 18px;
+        }
+
+        .about-text h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(29px, 4vw, 42px);
+            color: var(--dark-maroon);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .about-list {
+            list-style: none;
+            margin: 20px 0 28px;
+        }
+
+        .about-list li {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .about-list li::before {
+            content: "✓";
+            display: inline-grid;
+            place-items: center;
+            width: 23px;
+            height: 23px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background: var(--light-pink);
+            color: var(--maroon);
+        }
+
+        .btn-maroon {
+            color: var(--white);
+            background: var(--maroon);
+        }
+
+        .btn-maroon:hover {
+            background: var(--dark-maroon);
+        }
+
+        /* =========================
+           8. MISSION AND VALUES
+        ========================= */
+        .values-section {
+            background: var(--cream);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .value-card {
+            padding: 30px 25px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .icon-box {
+            display: grid;
+            place-items: center;
+            width: 58px;
+            height: 58px;
+            background: var(--light-pink);
+            border-radius: 13px;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            color: var(--maroon);
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        /* =========================
+           9. ACADEMICS
+        ========================= */
+        .academic-card {
+            padding: 28px 23px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            border-top: 4px solid var(--maroon);
+        }
+
+        .academic-card h3 {
+            color: var(--dark-maroon);
+            margin-bottom: 10px;
+        }
+
+        .academic-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .academic-card .number {
+            display: block;
+            font-family: Georgia, serif;
+            font-size: 32px;
+            font-weight: bold;
+            color: #ead2da;
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           10. TIMETABLE
+        ========================= */
+        .timetable-section {
+            background: var(--light-pink);
+        }
+
+        .table-note {
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 18px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        table {
+            width: 100%;
+            min-width: 750px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 16px 13px;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        thead th {
+            background: var(--maroon);
+            color: var(--white);
+            font-size: 13px;
+        }
+
+        tbody th {
+            color: var(--maroon);
+            background: #fff9fb;
+            font-size: 13px;
+        }
+
+        tbody td {
+            font-size: 14px;
+        }
+
+        tbody tr:hover td {
+            background: #fff5f7;
+        }
+
+        .break-cell {
+            color: var(--maroon);
+            background: #f5e3e9;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        /* =========================
+           11. STUDENT LIFE
+        ========================= */
+        .student-life {
+            color: var(--white);
+            background: var(--dark-maroon);
+        }
+
+        .student-life .section-heading h2 {
+            color: var(--white);
+        }
+
+        .student-life .section-heading p {
+            color: #e8dce0;
+        }
+
+        .student-life .eyebrow {
+            color: var(--maroon);
+            background: var(--gold);
+        }
+
+        .life-card {
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 28px 24px;
+            border-radius: 12px;
+        }
+
+        .life-card h3 {
+            color: var(--gold);
+            margin: 12px 0;
+        }
+
+        .life-card p {
+            color: #f2e8eb;
+            font-size: 14px;
+        }
+
+        /* =========================
+           12. ANNOUNCEMENTS
+        ========================= */
+        .announcement {
+            display: grid;
+            grid-template-columns: 85px 1fr;
+            gap: 22px;
+            align-items: start;
+            padding: 25px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 17px;
+            background: var(--white);
+        }
+
+        .announcement-date {
+            text-align: center;
+            padding: 12px 6px;
+            border-radius: 8px;
+            background: var(--light-pink);
+            color: var(--maroon);
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .announcement-date span {
+            display: block;
+            font-size: 25px;
+            font-family: Georgia, serif;
+        }
+
+        .announcement h3 {
+            color: var(--maroon);
+            margin-bottom: 5px;
+        }
+
+        .announcement p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           13. DECORATIVE FUN CORNER
+        ========================= */
+        .fun-section {
+            background: var(--cream);
+        }
+
+        .fun-panel {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            padding: 40px 25px;
+            border-radius: 18px;
+            background:
+                radial-gradient(circle at top right, #a63c5a, transparent 40%),
+                var(--dark-maroon);
+            color: var(--white);
+            border: 3px solid var(--gold);
+        }
+
+        .fun-panel h3 {
+            font-family: Georgia, serif;
+            font-size: 29px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .fun-symbols {
+            font-size: clamp(35px, 6vw, 55px);
+            letter-spacing: 8px;
+            margin: 22px 0;
+        }
+
+        .fun-panel p {
+            color: #f5e8ec;
+        }
+
+        .fun-panel .small-note {
+            font-size: 12px;
+            margin-top: 15px;
+        }
+
+        /* =========================
+           14. CONTACT
+        ========================= */
+        .contact-section {
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contact-info {
+            padding: 30px;
+            background: var(--dark-maroon);
+            color: var(--white);
+            border-radius: 14px;
+        }
+
+        .contact-info h3 {
+            font-family: Georgia, serif;
+            font-size: 27px;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            margin-bottom: 18px;
+            color: #f0e4e8;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-info strong {
+            color: var(--white);
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-form label {
+            color: var(--dark-maroon);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #d8c9ce;
+            border-radius: 7px;
+            background: var(--cream);
+            color: var(--text);
+            outline: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--maroon);
+            box-shadow: 0 0 0 3px rgba(121, 0, 31, 0.08);
+        }
+
+        .contact-form textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            padding: 14px;
+            color: var(--white);
+            background: var(--maroon);
+            border: none;
+            border-radius: 7px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background: var(--dark-maroon);
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* =========================
+           15. FOOTER
+        ========================= */
+        footer {
+            color: var(--white);
+            background: #25000a;
+            padding: 55px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: 35px;
+            padding-bottom: 35px;
+        }
+
+        .footer-column h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .footer-column p {
+            color: #e3d5da;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            display: block;
+            width: fit-content;
+            color: #e3d5da;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .footer-column a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 20px;
+            text-align: center;
+            color: #d5c3ca;
+            font-size: 12px;
+        }
+
+        /* =========================
+           16. ACCESSIBILITY
+        ========================= */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 3px;
+        }
+
+        /* =========================
+           17. RESPONSIVE DESIGN
+        ========================= */
+        @media (max-width: 950px) {
+            .header-inner {
+                flex-direction: column;
+                justify-content: center;
+                padding: 18px 0;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .about-grid {
+                gap: 30px;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                width: 92%;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .brand-text {
+                font-size: 14px;
+            }
+
+            .brand-text span {
+                letter-spacing: 3px;
+            }
+
+            .nav-links {
+                gap: 3px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            .hero {
+                min-height: 530px;
+                background-position: center;
+            }
+
+            .hero-content {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -0.5px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .facts {
+                grid-template-columns: 1fr;
+            }
+
+            .fact {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .fact:last-child {
+                border-bottom: none;
+            }
+
+            .about-grid,
+            .contact-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 280px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .announcement {
+                grid-template-columns: 65px 1fr;
+                gap: 14px;
+                padding: 17px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-buttons .btn {
+                min-width: 190px;
+            }
+
+            .contact-info {
+                padding: 24px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <strong>OUR LADY OF MERCY</strong>
+        &nbsp; | &nbsp; Knowledge • Discipline • Service
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+
+            <a href="#home" class="brand" aria-label="Our Lady of Mercy High School home">
+                <div class="crest" aria-hidden="true">M</div>
+
+                <div class="brand-text">
+                    OUR LADY OF MERCY
+                    <span>HIGH SCHOOL</span>
+                </div>
+            </a>
+
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#values">Values</a>
+                <a href="#academics">Academics</a>
+                <a href="#timetable">Timetable</a>
+                <a href="#student-life">Student Life</a>
+                <a href="#contact" class="nav-cta">Contact Us</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HOME / HERO -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+
+                    <span class="hero-label">
+                        Welcome to Our School
+                    </span>
+
+                    <h1>
+                        Building Great Minds,
+                        <span>Kind Hearts.</span>
+                    </h1>
+
+                    <p>
+                        A place where knowledge grows, talents flourish,
+                        character is strengthened, and every learner is
+                        encouraged to work towards a brighter future.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#about" class="btn btn-light">
+                            Discover Our School
+                        </a>
+
+                        <a href="#academics" class="btn btn-outline">
+                            Explore Academics
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="hero-bottom"></div>
+        </section>
+
+        <!-- QUICK FACTS -->
+        <div class="facts-wrap">
+            <div class="container">
+                <div class="facts">
+
+                    <div class="fact">
+                        <strong>Excellence</strong>
+                        <span>Commitment to learning</span>
+                    </div>
+
+                    <div class="fact">
+                        <strong>Integrity</strong>
+                        <span>Building strong character</span>
+                    </div>
+
+                    <div class="fact">
+                        <strong>Community</strong>
+                        <span>Growing together</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="container about-grid">
+
+                <div class="about-image"
+                     role="img"
+                     aria-label="School gate and school campus photograph">
+                </div>
+
+                <div class="about-text">
+
+                    <span class="eyebrow">Who We Are</span>
+
+                    <h2>
+                        A School That Inspires
+                        a Brighter Tomorrow
+                    </h2>
+
+                    <p>
+                        Our Lady of Mercy High School is presented here
+                        as a learning community committed to academic
+                        growth, personal responsibility, and the
+                        development of each learner's potential.
+                    </p>
+
+                    <p>
+                        We believe that education should develop the mind,
+                        nurture good character, and prepare students to
+                        contribute positively to society.
+                    </p>
+
+                    <ul class="about-list">
+                        <li>Quality teaching and learning</li>
+                        <li>Respect, discipline, and responsibility</li>
+                        <li>Creativity, leadership, and teamwork</li>
+                    </ul>
+
+                    <a href="#values" class="btn btn-maroon">
+                        Learn About Our Values
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- MISSION, VISION AND VALUES -->
+        <section class="section values-section" id="values">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Our Foundation</span>
+                    <h2>What Guides Us</h2>
+                    <p>
+                        Strong values help learners become thoughtful,
+                        responsible, and confident members of society.
+                    </p>
+                    <div class="gold-line"></div>
+                </div>
+
+                <div class="card-grid">
+
+                    <article class="value-card">
+                        <div class="icon-box" aria-hidden="true">🎯</div>
+                        <h3>Our Mission</h3>
+                        <p>
+                            To support meaningful education and nurture
+                            learners who demonstrate knowledge,
+                            responsibility, and good character.
+                        </p>
+                    </article>
+
+                    <article class="value-card">
+                        <div class="icon-box" aria-hidden="true">🌟</div>
+                        <h3>Our Vision</h3>
+                        <p>
+                            To encourage learners to become capable,
+                            confident, and responsible people who
+                            contribute to their communities.
+                        </p>
+                    </article>
+
+                    <article class="value-card">
+                        <div class="icon-box" aria-hidden="true">🤝</div>
+                        <h3>Our Core Values</h3>
+                        <p>
+                            Integrity, respect, discipline, teamwork,
+                            compassion, service, and a commitment
+                            to lifelong learning.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ACADEMICS -->
+        <section class="section" id="academics">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Learning and Discovery</span>
+                    <h2>Explore Our Academic Areas</h2>
+                    <p>
+                        Different learning areas help students build
+                        knowledge, develop practical skills, and
+                        discover their interests.
+                    </p>
+                    <div class="gold-line"></div>
+                </div>
+
+                <div class="card-grid">
+
+                    <article class="academic-card">
+                        <span class="number">01</span>
+                        <h3>Mathematics</h3>
+                        <p>
+                            Logical reasoning, numerical skills,
+                            and practical problem-solving.
+                        </p>
+                    </article>
+
+                    <article class="academic-card">
+                        <span class="number">02</span>
+                        <h3>Languages</h3>
+                        <p>
+                            Communication, reading, writing,
+                            comprehension, and expression.
+                        </p>
+                    </article>
+
+                    <article class="academic-card">
+                        <span class="number">03</span>
+                        <h3>Sciences</h3>
+                        <p>
+                            Scientific inquiry, observation,
+                            experimentation, and discovery.
+                        </p>
+                    </article>
+
+                    <article class="academic-card">
+                        <span class="number">04</span>
+                        <h3>Humanities</h3>
+                        <p>
+                            Understanding people, history,
+                            geography, and society.
+                        </p>
+                    </article>
+
+                    <article class="academic-card">
+                        <span class="number">05</span>
+                        <h3>Computer Studies</h3>
+                        <p>
+                            Digital literacy, computing concepts,
+                            and responsible technology use.
+                        </p>
+                    </article>
+
+                    <article class="academic-card">
+                        <span class="number">06</span>
+                        <h3>Creative Activities</h3>
+                        <p>
+                            Creative thinking, expression,
+                            practical skills, and collaboration.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TIMETABLE -->
+        <section class="section timetable-section" id="timetable">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Plan Your Learning</span>
+                    <h2>Sample Weekly Timetable</h2>
+                    <p>
+                        An example of how a school timetable can be
+                        presented online. Replace the subjects and times
+                        with the school's approved timetable.
+                    </p>
+                    <div class="gold-line"></div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Monday</th>
+                                <th>Tuesday</th>
+                                <th>Wednesday</th>
+                                <th>Thursday</th>
+                                <th>Friday</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th>8:00–9:00</th>
+                                <td>Mathematics</td>
+                                <td>English</td>
+                                <td>Biology</td>
+                                <td>Mathematics</td>
+                                <td>English</td>
+                            </tr>
+
+                            <tr>
+                                <th>9:00–10:00</th>
+                                <td>English</td>
+                                <td>Chemistry</td>
+                                <td>History</td>
+                                <td>Geography</td>
+                                <td>Physics</td>
+                            </tr>
+
+                            <tr>
+                                <th>10:00–10:30</th>
+                                <td class="break-cell" colspan="5">BREAK</td>
+                            </tr>
+
+                            <tr>
+                                <th>10:30–11:30</th>
+                                <td>Biology</td>
+                                <td>Mathematics</td>
+                                <td>English</td>
+                                <td>Chemistry</td>
+                                <td>Computer Studies</td>
+                            </tr>
+
+                            <tr>
+                                <th>11:30–12:30</th>
+                                <td>Geography</td>
+                                <td>Physics</td>
+                                <td>Mathematics</td>
+                                <td>English</td>
+                                <td>Biology</td>
+                            </tr>
+
+                            <tr>
+                                <th>12:30–1:30</th>
+                                <td class="break-cell" colspan="5">LUNCH</td>
+                            </tr>
+
+                            <tr>
+                                <th>1:30–2:30</th>
+                                <td>History</td>
+                                <td>Biology</td>
+                                <td>Computer Studies</td>
+                                <td>Physics</td>
+                                <td>Geography</td>
+                            </tr>
+
+                            <tr>
+                                <th>2:30–3:30</th>
+                                <td>Games</td>
+                                <td>Clubs</td>
+                                <td>Guidance</td>
+                                <td>Sports</td>
+                                <td>Class Meeting</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="table-note">
+                    Note: This is sample content, not the school's
+                    verified official timetable.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- STUDENT LIFE -->
+        <section class="section student-life" id="student-life">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Beyond the Classroom</span>
+                    <h2>Student Life and Talent</h2>
+                    <p>
+                        School life can provide opportunities to build
+                        friendships, explore interests, and develop
+                        leadership skills.
+                    </p>
+                    <div class="gold-line"></div>
+                </div>
+
+                <div class="card-grid">
+
+                    <article class="life-card">
+                        <div class="icon-box" aria-hidden="true">⚽</div>
+                        <h3>Sports and Games</h3>
+                        <p>
+                            Encourage teamwork, discipline,
+                            fitness, and positive competition.
+                        </p>
+                    </article>
+
+                    <article class="life-card">
+                        <div class="icon-box" aria-hidden="true">🎭</div>
+                        <h3>Arts and Creativity</h3>
+                        <p>
+                            Provide opportunities for expression,
+                            imagination, performance, and talent.
+                        </p>
+                    </article>
+
+                    <article class="life-card">
+                        <div class="icon-box" aria-hidden="true">🌍</div>
+                        <h3>Clubs and Service</h3>
+                        <p>
+                            Develop leadership, teamwork,
+                            responsibility, and community awareness.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ANNOUNCEMENTS -->
+        <section class="section" id="announcements">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Stay Informed</span>
+                    <h2>School Announcements</h2>
+                    <p>
+                        Use this area to publish verified school notices
+                        and important dates.
+                    </p>
+                    <div class="gold-line"></div>
+                </div>
+
+                <article class="announcement">
+                    <div class="announcement-date">
+                        <span>01</span>
+                        NOTICE
+                    </div>
+
+                    <div>
+                        <h3>School Calendar</h3>
+                        <p>
+                            Add the official opening dates, closing dates,
+                            and school calendar information here.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="announcement">
+                    <div class="announcement-date">
+                        <span>02</span>
+                        NOTICE
+                    </div>
+
+                    <div>
+                        <h3>Parent and Guardian Updates</h3>
+                        <p>
+                            Add approved information about parent meetings,
+                            school events, and important communications.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="announcement">
+                    <div class="announcement-date">
+                        <span>03</span>
+                        NOTICE
+                    </div>
+
+                    <div>
+                        <h3>Admissions Information</h3>
+                        <p>
+                            Add the school's verified admission
+                            requirements and official enquiry procedure.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- STATIC FUN CORNER -->
+        <section class="section fun-section" id="fun-corner">
+            <div class="container">
+
+                <div class="fun-panel">
+                    <h3>Our School Fun Corner</h3>
+
+                    <p>
+                        A little creativity adds colour to the school
+                        website. Enjoy this decorative game-inspired
+                        design.
+                    </p>
+
+                    <div class="fun-symbols" aria-hidden="true">
+                        
+                    </div>
+
+                    <p>
+                        Learn, discover, and enjoy your school journey.
+                    </p>
+
+                    <p class="small-note">
+                        Decorative display only. No betting, spinning,
+                        or scorekeeping is provided.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section contact-section" id="contact">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Get in Touch</span>
+                    <h2>Contact Our School</h2>
+                    <p>
+                        Replace the sample information with the school's
+                        verified address, telephone number, and email.
+                    </p>
+                    <div class="gold-line"></div>
+                </div>
+
+                <div class="contact-grid">
+
+                    <div class="contact-info">
+                        <h3>We Welcome Your Enquiries</h3>
+
+                        <p>
+                            <strong>School:</strong><br>
+                            Our Lady of Mercy High School
+                        </p>
+
+                        <p>
+                            <strong>Location:</strong><br>
+                            Add the official school location
+                        </p>
+
+                        <p>
+                            <strong>Telephone:</strong><br>
+                            Add the official telephone number
+                        </p>
+
+                        <p>
+                            <strong>Email:</strong><br>
+                            Add the official school email
+                        </p>
+                    </div>
+
+                    <div>
+                        <form class="contact-form" action="#" method="post">
+
+                            <label for="full-name">Full Name</label>
+                            <input
+                                type="text"
+                                id="full-name"
+                                name="full-name"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required
+                            >
+
+                            <label for="email">Email Address</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                autocomplete="email"
+                                required
+                            >
+
+                            <label for="subject">Subject</label>
+                            <input
+                                type="text"
+                                id="subject"
+                                name="subject"
+                                placeholder="What is your enquiry about?"
+                                required
+                            >
+
+                            <label for="message">Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Write your message here..."
+                                required
+                            ></textarea>
+
+                            <button type="submit">
+                                Send Enquiry
+                            </button>
+
+                            <p class="form-note">
+                                This form is a visual template. A server
+                                or form service must be configured to
+                                receive submitted messages.
+                            </p>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-column">
+                    <h3>Our Lady of Mercy</h3>
+                    <p>
+                        Building great minds, kind hearts,
+                        and a brighter future.
+                    </p>
+                    <p>
+                        Knowledge • Discipline • Service
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#about">About Our School</a>
+                    <a href="#academics">Academics</a>
+                    <a href="#timetable">School Timetable</a>
+                    <a href="#announcements">Announcements</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>School Information</h3>
+                    <a href="#values">Mission and Values</a>
+                    <a href="#student-life">Student Life</a>
+                    <a href="#fun-corner">Fun Corner</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Our Lady of Mercy High School.
+                    All rights reserved.
+                </p>
+                <p>Designed with HTML and CSS.</p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
+
